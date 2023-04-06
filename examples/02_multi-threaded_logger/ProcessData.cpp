@@ -11,7 +11,7 @@ using namespace std;
 
 ProcessData::ProcessData()
 {
-	m_logger_thread = thread{&ProcessData::processEntries, this};
+	m_logger_thread = thread{&ProcessData::processEntriesRaw, this};
 }
 
 ProcessData::~ProcessData()
@@ -31,7 +31,13 @@ void ProcessData::enqueue(IMU_Data entry)
 
 	m_condVar.notify_all();
 }
+void ProcessData::enqueue(IMU_DataRaw entry)
+{
+	unique_lock lock{m_mutex};
+	m_queue_raw.push(move(entry));
 
+	m_condVar.notify_all();
+}
 void ProcessData::processEntries()
 {
 	// Open log file.
@@ -70,8 +76,61 @@ void ProcessData::processEntries()
 		processEntriesHelper(localQueue, logFile);
 	}
 }
+void ProcessData::processEntriesRaw()
+{
+	// Open log file.
+	ofstream logFile{"imu_data.txt"};
+	if (logFile.fail())
+	{
+		cerr << "Failed to open logfile." << endl;
+		return;
+	}
 
+	time_t ttime = time(0);
+	char *dt = ctime(&ttime);
+	logFile << dt;
+	logFile << "ism330dhcx" << endl;
+	logFile << "dt(ms) acc_x(mg) acc_y(mg) acc_z(mg) gyr_x(deg/s) gyr_y(deg/s) gyr_z(deg/s)" << endl;
+
+	unique_lock lock{m_mutex, defer_lock};
+	while (true)
+	{
+		lock.lock();
+
+		if (!m_exit)
+		{
+			m_condVar.wait(lock);
+		}
+		else
+		{
+			processEntriesHelper(m_queue_raw, logFile);
+			break;
+		}
+
+		queue<IMU_DataRaw> localQueue;
+		localQueue.swap(m_queue_raw);
+		lock.unlock();
+
+		processEntriesHelper(localQueue, logFile);
+	}
+}
 void ProcessData::processEntriesHelper(queue<IMU_Data> &queue, ofstream &ofs) const
+{
+	while (!queue.empty())
+	{
+
+		ofs << queue.front().dt << " ";
+		ofs << queue.front().ax << " ";
+		ofs << queue.front().ay << " ";
+		ofs << queue.front().az << " ";
+		ofs << queue.front().gx << " ";
+		ofs << queue.front().gy << " ";
+		ofs << queue.front().gz << " ";
+		ofs << endl;
+		queue.pop();
+	}
+}
+void ProcessData::processEntriesHelper(queue<IMU_DataRaw> &queue, ofstream &ofs) const
 {
 	while (!queue.empty())
 	{

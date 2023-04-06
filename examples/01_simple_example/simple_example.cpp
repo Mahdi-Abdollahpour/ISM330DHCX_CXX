@@ -64,7 +64,7 @@ int main()
     ios_base::sync_with_stdio(false);
     auto end = chrono::high_resolution_clock::now();
 
-    for (int i = 1; i < 100;) // use  while (true) instead
+    for (int i = 1; i < 100000;) // use  while (true) instead
     {
         if (myISM.checkStatus())
         {
