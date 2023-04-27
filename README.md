@@ -78,3 +78,5 @@ An Arduino uno rev3 and and Odroid n2l are used for the recording of the data. T
 ![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/arduino.jpg?raw=true)
 ![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/odroid.jpg?raw=true)
 
+## Converting Raw Data To ISI
+A functionality to read data file and convert raw data to ISI units will be provided.
