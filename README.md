@@ -75,6 +75,8 @@ The improved-synchronization is the example 3 of this repository on an Odroid n2
 ## Hardware
 
 An Arduino uno rev3 and and Odroid n2l are used for the recording of the data. The images are shown below:
+
+
 ![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/arduino.jpg?raw=true)
 ![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/odroid.jpg?raw=true)
 
