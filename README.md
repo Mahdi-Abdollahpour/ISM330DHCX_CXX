@@ -72,4 +72,9 @@ The statistics of the timing dt in 3 different set-ups is illustrated in the fol
 The improved-synchronization is the example 3 of this repository on an Odroid n2l with ubuntu-server OS. The Arduino is an impelementation of the IMU logger on an Arduino UNO rev3. The Typical-Synchronization shows a typical logging set-up which is widely used.
 
 ![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/dt_hist.jpg?raw=true)
+## Hardware
+
+An Arduino uno rev3 and and Odroid n2l are used for the recording of the data. The images are shown below:
+![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/arduino.jpg?raw=true)
+![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/odroid.jpg?raw=true)
 
