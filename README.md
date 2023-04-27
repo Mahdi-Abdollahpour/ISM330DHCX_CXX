@@ -4,8 +4,8 @@ The ISM330DHCX is a six Degrees of Freedom (6DoF) Inertial Measurement Unit (IMU
 
 Unlike the Arduino library, this particular library can be seamlessly integrated into any C++ project. It can be utilized on any Single-Board Computer (SBC), such as Raspberry Pi or Odroid n2, Odroid n2l, ..., without any issues. The library utilizes wiringpi to establish communication via the I2C protocol.
 
-## Install WiringPi
-#Raspberry Pi
+# Install WiringPi
+## Raspberry Pi
 To install WiringPi on a Raspberry Pi running either Raspbian or Ubuntu operating system, you can follow these steps:
 
 ```bash
@@ -17,7 +17,7 @@ Then to check it is working:
 ```bash
 gpio -v
 ```
-# Odroid
+## Odroid
 On an Odroid board follow the following steps:
 
 ```bash
@@ -28,4 +28,42 @@ sudo apt install odroid-wiringpi
 sudo apt install libwiringpi-dev
 ```
 For further information regarding Odroid GPIO, you can refer to the [Hardkernel Wiki](https://wiki.odroid.com/start).
+# Build 
+A cmake list is provided in the main folder of the library. After cloning the repository, To build the library with examples follow these steps:
+```bash
+cd ./ISM330DHCX_CXX
+mkdir build
+cd build
+cmake ..
+make
+```
+use `make -j6` to use 6 threads for building. 
+
+# Examples
+
+The examples folder contains three illustrative examples. The first example demonstrates a straightforward process of reading and printing outputs. The second example showcases a multithreaded logger that can be compiled and built on any operating system. Finally, the third example presents a real-time implementation of the multithreaded logger, offering exceptionally accurate timing with a sampling rate of up to 833Hz. It's important to note that the third example utilizes Linux real-time threads and can only be built on Linux operating systems. Please be aware that the third example is still pending to be pushed to the repository.
+
+# Sample Data
+
+As part of my MSc thesis I have collected IMU recordings of regional trains. The third example in this repository is used on an odroid n2l SBC with an Ubuntu server OS to collect the data. The collected data is provided in the data folder of this repository. The train is a regional fast train which starts it's journey from the train station of the city Ferrara in Italy and ends the journey at the central train station in Bologna. Also the train has a stop in the middle of the journey at San Pietro in Casale. The first five rows of the data file consists of metadata like the start sime of the recording, the coordinates of the begining and end points of the journy. The data itself consists of 9 columns. 
+
+imu | dt | rawAccX | rawAccY | rawAccZ | rawGyrX | rawGyrY | rawGyrZ
+column title | explanation
+------------- | -------------
+imu  | Data tag meaning this row of data is IMU data(as it can be ubx data too).
+dt  | The number of micro-seconds from last sample
+rawAccX | Raw acceleration in the x-axis
+rawAccY | Raw acceleration in the y-axis
+rawAccZ | Raw acceleration in the z-axis
+rawGyrX | Raw angular rate in the x-axis
+rawGyrY | Raw angular rate in the y-axis
+rawGyrZ | Raw angular rate in the z-axis
+label | Manual motion label; 0/1 stationary/moving states of the train respectively.
+## Timing of the samples
+
+
+
+
+
+
 
