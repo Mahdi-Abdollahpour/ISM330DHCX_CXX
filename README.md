@@ -41,7 +41,7 @@ use `make -j6` to use 6 threads for building.
 
 # Examples
 
-The examples folder contains three illustrative examples. The first example demonstrates a straightforward process of reading and printing outputs. The second example showcases a multithreaded logger that can be compiled and built on any operating system. Finally, the third example presents a real-time implementation of the multithreaded logger, offering exceptionally accurate timing with a sampling rate of up to 833Hz. It's important to note that the third example utilizes Linux real-time threads and can only be built on Linux operating systems. Please be aware that the third example is still pending to be pushed to the repository.
+The examples folder contains three illustrative examples. C++ 20 required to build the examples. The first example demonstrates a straightforward process of reading and printing outputs. The second example showcases a multithreaded logger that can be compiled and built on any operating system. Finally, the third example presents a real-time implementation of the multithreaded logger, offering exceptionally accurate timing with a sampling rate of up to 833Hz. It's important to note that the third example utilizes Linux real-time threads and can only be built on Linux operating systems. Please be aware that the third example is still pending to be pushed to the repository.
 
 # Sample Data
 
