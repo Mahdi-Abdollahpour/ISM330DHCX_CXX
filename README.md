@@ -46,10 +46,10 @@ The examples folder contains three illustrative examples. The first example demo
 # Sample Data
 
 As part of my MSc thesis, I have gathered IMU recordings of regional trains. The third example in this repository was employed on an Odroid N2L single-board computer (SBC) running Ubuntu Server OS to acquire the data. The collected data can be found in the data folder of this repository. The train in question is a regional express train that commences its journey from Ferrara, a city in Italy, and terminates at the central train station in Bologna. Additionally, there is a stop along the route at San Pietro in Casale. The following figure shows the route in UTM zone 32:
+
 ![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/map.jpg?raw=true)
 
-
-The initial five rows of the data file contain metadata such as the date and time of the recording and the coordinates of the departure and arrival points of the journey. The data itself consists of nine columns.
+The initial five rows of the data file contain metadata such as the date and time of the recording and the coordinates of the departure and arrival points of the journey. The coordinates of  the departure and arrival points has a minimum uncertainty of 40 meters. The data itself consists of nine columns:
 
 imu | dt | rawAccX | rawAccY | rawAccZ | rawGyrX | rawGyrY | rawGyrZ
 column title | explanation
