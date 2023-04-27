@@ -61,9 +61,9 @@ rawGyrZ | Raw angular rate in the z-axis
 label | Manual motion label; 0/1 stationary/moving states of the train respectively.
 ## Timing of the samples
 
+The statistics of the timing dt in 3 different set-ups is illustrated in the following figures. The improved-synchronization is the example 3 of this repository on an Odroid n2l with ubuntu-server OS. The Arduino is an impelementation of the IMU logger on an Arduino UNO rev3. The Typical-Synchronization shows a typical logging set-up which is widely used.
 
-
-
+[scatter of the recorded samples]()
 
 
 
