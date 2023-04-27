@@ -45,7 +45,11 @@ The examples folder contains three illustrative examples. The first example demo
 
 # Sample Data
 
-As part of my MSc thesis I have collected IMU recordings of regional trains. The third example in this repository is used on an odroid n2l SBC with an Ubuntu server OS to collect the data. The collected data is provided in the data folder of this repository. The train is a regional fast train which starts it's journey from the train station of the city Ferrara in Italy and ends the journey at the central train station in Bologna. Also the train has a stop in the middle of the journey at San Pietro in Casale. The first five rows of the data file consists of metadata like the start sime of the recording, the coordinates of the begining and end points of the journy. The data itself consists of 9 columns. 
+As part of my MSc thesis, I have gathered IMU recordings of regional trains. The third example in this repository was employed on an Odroid N2L single-board computer (SBC) running Ubuntu Server OS to acquire the data. The collected data can be found in the data folder of this repository. The train in question is a regional express train that commences its journey from Ferrara, a city in Italy, and terminates at the central train station in Bologna. Additionally, there is a stop along the route at San Pietro in Casale. The following figure shows the route in UTM zone 32:
+![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/map.jpg?raw=true)
+
+
+The initial five rows of the data file contain metadata such as the date and time of the recording and the coordinates of the departure and arrival points of the journey. The data itself consists of nine columns.
 
 imu | dt | rawAccX | rawAccY | rawAccZ | rawGyrX | rawGyrY | rawGyrZ
 column title | explanation
@@ -61,9 +65,11 @@ rawGyrZ | Raw angular rate in the z-axis
 label | Manual motion label; 0/1 stationary/moving states of the train respectively.
 ## Timing of the samples
 
-The statistics of the timing dt in 3 different set-ups is illustrated in the following figures. The improved-synchronization is the example 3 of this repository on an Odroid n2l with ubuntu-server OS. The Arduino is an impelementation of the IMU logger on an Arduino UNO rev3. The Typical-Synchronization shows a typical logging set-up which is widely used.
+The statistics of the timing dt in 3 different set-ups is illustrated in the following figures.
 
-![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/dt_scatter.tif?raw=true)
-![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/odroid.jpg?raw=true)
+![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/dt_scatter.jpg?raw=true)
 
-https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/odroid.jpg
+The improved-synchronization is the example 3 of this repository on an Odroid n2l with ubuntu-server OS. The Arduino is an impelementation of the IMU logger on an Arduino UNO rev3. The Typical-Synchronization shows a typical logging set-up which is widely used.
+
+![scatter plot of the recorded samples](https://github.com/Mahdi-Abdollahpour/ISM330DHCX_CXX/blob/main/figures/dt_hist.jpg?raw=true)
+
